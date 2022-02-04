@@ -6,7 +6,7 @@ import requests
 
 map_request = "http://static-maps.yandex.ru/1.x/"
 params = {'ll': '133.377150,-26.974007',
-          'spn': '25.0,25.0',
+          'spn': '13.0,13.0',
           'l': 'map'}
 
 response = requests.get(map_request, params=params)
