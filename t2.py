@@ -34,7 +34,7 @@ def load_image(params_: dict) -> pg.Surface:
     return image
 
 
-def set_params(params_: dict, value: float):
+def set_spn(params_: dict, value: float):
     spn_ = float(params_['spn'].split(',')[0])
     if 1 <= spn_ + value <= 25:
         params_['spn'] = ','.join([str(spn_ + value)] * 2)
@@ -57,11 +57,11 @@ if __name__ == '__main__':
 
             if event.type == pg.KEYDOWN:
                 if event.key == pg.K_PAGEUP:
-                    params = set_params(params, 0.5)
+                    params = set_spn(params, 0.5)
                     chart_group = pg.sprite.Group(Map(load_image(params)))
 
                 if event.key == pg.K_PAGEDOWN:
-                    params = set_params(params, -0.5)
+                    params = set_spn(params, -0.5)
                     chart_group = pg.sprite.Group(Map(load_image(params)))
 
         pg.display.flip()
