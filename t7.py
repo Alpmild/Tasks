@@ -4,8 +4,9 @@ import sys
 import os
 
 """
-Большая задача по Maps API. Часть №6
+Большая задача по Maps API. Часть №7
 Чтобы выбирать слой, надо нажимать на кнопки 1, 2, 3
+Метка удаляется при нажатии на Enter, который под Backspace :)
 """
 message = "Введите название объекта: "
 
@@ -126,6 +127,10 @@ if __name__ == '__main__':
 
                 if event.key == pg.K_3:
                     change_map(map_params, 'skl')
+                    chart_group = pg.sprite.Group(Map(load_image(map_params)))
+
+                if event.key == pg.K_RETURN:
+                    map_params.pop('pt')
                     chart_group = pg.sprite.Group(Map(load_image(map_params)))
 
         pg.display.flip()
